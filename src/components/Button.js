@@ -1,3 +1,4 @@
+// DO NOT UPDATE THIS FILE!
 const INTENT_VS_CLASSNAME = {
   positive: {
     default: 'text-white bg-green-500 hover:bg-green-600',
@@ -16,6 +17,7 @@ const INTENT_VS_CLASSNAME = {
   },
 };
 
+// DO NOT UPDATE THIS FILE!
 export const Button = ({
   label,
   onClick,

@@ -1,3 +1,4 @@
+// DO NOT UPDATE THIS FILE!
 const INTENT_VS_CLASSNAME = {
   positive: {
     default: 'bg-green-200',
@@ -15,6 +16,7 @@ const INTENT_VS_CLASSNAME = {
   },
 };
 
+// DO NOT UPDATE THIS FILE!
 export const Word = ({ word, onClick, selected, intent = 'default' }) => {
   return (
     <span
