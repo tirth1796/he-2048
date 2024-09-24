@@ -1,10 +1,16 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 import { Word } from './components/Word';
 import { Button } from './components/Button';
 
 export const Annotations = ({ paragraph }) => {
   // Splits the paragraph into an array of words
   const words = useMemo(() => paragraph.split(' '), [paragraph]);
+
+  // TODO: Implement These!
+  const onWordClick = useCallback(() => {}, []);
+  const onAnnotatePositiveClick = useCallback(() => {}, []);
+  const onAnnotateNegativeClick = useCallback(() => {}, []);
+  const onResetAnnotateClick = useCallback(() => {}, []);
 
   return (
     <div className="w-full flex flex-col gap-4">
@@ -14,7 +20,7 @@ export const Annotations = ({ paragraph }) => {
       >
         {words.map((word, index) => (
           // TODO: These should be rendered with correct intent, selection and click handling
-          <Word word={word} key={index} />
+          <Word word={word} key={index} onClick={onWordClick} />
         ))}
       </div>
 
@@ -24,11 +30,19 @@ export const Annotations = ({ paragraph }) => {
         className="flex-1 flex flex-wrap justify-center gap-2"
       >
         {/* TODO: button should have correct selection and click handling */}
-        <Button label="Annotate Positive" intent="positive" />
+        <Button
+          label="Annotate Positive"
+          onClick={onAnnotatePositiveClick}
+          intent="positive"
+        />
         {/* TODO: button should have correct selection and click handling */}
-        <Button label="Annotate Negative" intent="negative" />
+        <Button
+          label="Annotate Negative"
+          onClick={onAnnotateNegativeClick}
+          intent="negative"
+        />
         {/* TODO: button should have correct disabled and click handling */}
-        <Button label="Reset Annotation" />
+        <Button label="Reset Annotation" onClick={onResetAnnotateClick} />
       </div>
     </div>
   );
