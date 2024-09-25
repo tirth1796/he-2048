@@ -85,7 +85,7 @@ test('annotates selected words with correct intent and reset works', () => {
   selectWords(positiveWords2);
   fireEvent.click(screen.getByText('Annotate Negative'));
 
-  selectWords(negativeWords);
+  selectWord(negativeWords[0]);
   fireEvent.click(screen.getByText('Annotate Positive'));
 
   selectWords(negativeWords2);
