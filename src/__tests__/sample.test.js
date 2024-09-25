@@ -89,6 +89,30 @@ test('annotates selected words with correct intent', () => {
   expectWordsSelected(words);
 });
 
+test('should unselect annotation on selecting any other word', () => {
+  render(<Annotations paragraph={paragraph} />);
+  selectWords(words);
+  fireEvent.click(screen.getByText('Annotate Positive'));
+  expectWordsSelected(words);
+
+  selectWords(negativeWords);
+  expectWordsUnselected(words);
+  expectWordsSelected(negativeWords);
+});
+
+test('should unselect word(s) on selecting any annotation', () => {
+  render(<Annotations paragraph={paragraph} />);
+  selectWords(words);
+  fireEvent.click(screen.getByText('Annotate Positive'));
+
+  selectWords(negativeWords);
+  expectWordsSelected(negativeWords);
+
+  selectWord(words[0], true);
+  expectWordsUnselected(negativeWords);
+  expectWordsSelected(words);
+});
+
 test('reset works correctly', () => {
   render(<Annotations paragraph={paragraph} />);
   selectWords(words);
