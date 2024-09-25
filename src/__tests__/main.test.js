@@ -109,15 +109,15 @@ test('annotates selected words with correct intent and reset works', () => {
   selectWord(negativeWords2[2]);
   fireEvent.click(screen.getByText('Reset Annotation'));
 
-  // expectWordsIntent(positiveWords, 'positive');
-  // expectWordsIntent(positiveWords2, 'positive');
-  // expectWordsIntent(negativeWords, 'negative');
-  // expectWordsIntent(negativeWords2, 'default');
+  expectWordsIntent(positiveWords, 'positive');
+  expectWordsIntent(positiveWords2, 'positive');
+  expectWordsIntent(negativeWords, 'negative');
+  expectWordsIntent(negativeWords2, 'default');
 
   expectWordsSelected(negativeWords2);
   fireEvent.click(screen.getByText('Annotate Negative'));
   expectWordsSelected(negativeWords2);
-  // expectWordsIntent(negativeWords2, 'negative');
+  expectWordsIntent(negativeWords2, 'negative');
 
   expect(screen.getByText('Reset Annotation').disabled).toBeFalsy();
   fireEvent.click(screen.getByText('Reset Annotation'));
@@ -132,10 +132,10 @@ test('annotates selected words with correct intent and reset works', () => {
   selectWord(positiveWords2[0]);
   fireEvent.click(screen.getByText('Reset Annotation'));
 
-  // expectWordsIntent(negativeWords2, 'default');
-  // expectWordsIntent(positiveWords, 'default');
-  // expectWordsIntent(positiveWords2, 'default');
-  // expectWordsIntent(negativeWords, 'default');
+  expectWordsIntent(negativeWords2, 'default');
+  expectWordsIntent(positiveWords, 'default');
+  expectWordsIntent(positiveWords2, 'default');
+  expectWordsIntent(negativeWords, 'default');
   expectWordsUnselected([
     ...positiveWords,
     ...negativeWords,
