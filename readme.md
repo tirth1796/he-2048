@@ -1,33 +1,37 @@
-# React Annotation Tool - State Management Logic
+## React Annotation Tool - State Management Logic
 
-You are tasked with building the state management logic for an annotation tool in React. The paragraph is already rendered and styled for you. Your job is to focus on the logic for **selecting words**, **adding annotations**, and **resetting annotations**.
+Your task is to build the state management logic for an annotation tool in React. The paragraph is already styled and rendered. Focus on handling **word selection**, **adding annotations**, and **resetting** them.
 
-## Requirements
+### Key Concepts
 
-### Annotation
+- **Annotation**: A group of words selected together and annotated.
+- **Actions**: **Annotate Positive**, **Annotate Negative**, and **Reset Annotation**.
 
-- Multiple Words selected together and annotated will behave as a group called Annotation
-- Selecting one word from an annotation selects all the words of the annotation.
-- Selecting an annotation also marks the corresponding **Annotate Positive** or **Annotate Negative** as **selected**
-- Changing or resetting annotation from one word of an annotation will do so for all the words of the annotation
-- **Annotations CANNOT be selected** alongside other **words** or **annotations**.
-  - **Command/Ctrl-clicking** an annotation when a word is selected will **deselect the word** and keep only the annotation.
-  - **Command/Ctrl-clicking** another annotation will **deselect the previous one** and keep the last selection.
-  - i.e., the **last selection** always takes precedence in case of conflict.
+### Requirements
 
-### Word Selection:
+#### Annotations
 
-- Users can select **individual words** by clicking.
-- Users can select **multiple words** by clicking with **Command (Mac)** or **Ctrl (Windows)** pressed.
-- Clicking on a **selected word or annotation** should **unselect** it.
-- Selected word(s) or annotation should remain selected after any action
+- **Grouped Behavior**: Selecting one word in an annotation selects the **entire group**.
+- **Annotation Selection**: When an annotation is selected, the corresponding **Annotate Positive** or **Annotate Negative** option is marked.
+- **Consistent Updates**: Changing or resetting the annotation of one word in a group affects the **whole annotation**.
+- **Exclusive Selection**: Words or annotations **cannot** be selected alongside other words or annotations.
+- **Command/Ctrl-click**:
+  - Clicking an annotation while a word is selected will **deselect** the word and keep only the annotation.
+  - Clicking a different annotation will **deselect** the previous one, making the **last selection** active.
 
-### Actions
+#### Word Selection
 
-- **Annotate Positive** Should annotate the selected word(s) or annotation as **"positive"**
-- **Annotate Negative** Should annotate the selected word(s) or annotation as **"negative"**
-- **Reset Annotation** Should reset the annotation or mark the words as **default**
-  - The **Reset Annotation** button should be disabled when selected words are not annotated.
+- **Individual Selection**: Users can select **individual words** by clicking.
+- **Multi-Word Selection**: **Command (Mac)** or **Ctrl (Windows)** + click allows multiple word selection.
+- **Deselecting**: Clicking on a **selected word** or annotation will unselect it.
+- **Persistence**: Selected words/annotations should stay selected **after any action**.
+
+#### Actions
+
+- **Annotate Positive**: Annotates the selected word(s) or annotation as **"Positive"**.
+- **Annotate Negative**: Annotates the selected word(s) or annotation as **"Negative"**.
+- **Reset Annotation**: Resets the annotation or marks the words as **default**.
+  - This option is **disabled** if the selected words are not annotated.
 
 ### Submission Instructions
 
