@@ -50,27 +50,54 @@ test('should select multiple words', () => {
   expectWordsUnselected([negativeWords[0]]);
 });
 
-test('should unselect words on escape click', () => {
-  render(<Annotations paragraph={paragraph} />);
-  selectWords(words);
-  expectWordsSelected(words);
-  screen.getByTestId('menu');
-
-  userEvent.keyboard('{Escape}');
-
-  expectWordsUnselected(words);
-  const menu = screen.queryByTestId('menu');
-  expect(menu).not.toBeInTheDocument();
-});
-
 test('annotates selected words as positive', () => {
   render(<Annotations paragraph={paragraph} />);
-  const words = ['customer', 'service', 'prompt', 'friendly,'];
   selectWords(words);
   expectWordsIntent(words, 'default');
 
   fireEvent.click(screen.getByText('Annotate Positive'));
   expectWordsIntent(words, 'positive');
+});
+
+test('selecting one word of annotation groups should select all words of group', () => {
+  render(<Annotations paragraph={paragraph} />);
+  selectWords(words);
+  expectWordsIntent(words, 'default');
+
+  fireEvent.click(screen.getByText('Annotate Positive'));
+  selectWord(negativeWords[0]);
+  selectWord(words[0]);
+  expectWordsSelected(words);
+});
+
+test('annotating one word of annotation group should annotate all words of group', () => {
+  render(<Annotations paragraph={paragraph} />);
+  selectWords(words);
+  expectWordsIntent(words, 'default');
+
+  fireEvent.click(screen.getByText('Annotate Positive'));
+  selectWord(negativeWords[0]);
+  selectWord(words[0]);
+  expectWordsSelected(words);
+  expectWordsIntent(words, 'positive');
+
+  fireEvent.click(screen.getByText('Annotate Negative'));
+  expectWordsIntent(words, 'negative');
+});
+
+test('resetting annotation of one word of annotation group should reset all words of group', () => {
+  render(<Annotations paragraph={paragraph} />);
+  selectWords(words);
+  expectWordsIntent(words, 'default');
+
+  fireEvent.click(screen.getByText('Annotate Positive'));
+  selectWord(negativeWords[0]);
+  selectWord(words[0]);
+  expectWordsSelected(words);
+  expectWordsIntent(words, 'positive');
+
+  fireEvent.click(screen.getByText('Reset Annotation'));
+  expectWordsIntent(words, 'default');
 });
 
 test('annotates selected words with correct intent', () => {

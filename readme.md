@@ -10,7 +10,6 @@ The paragraph is already rendered and styled for you. Your job is to focus on th
 
 - Users can select **individual words** by clicking.
 - Users can select **multiple words** by clicking with **Command (Mac)** or **Ctrl (Windows)** pressed.
-- Users should be able to **unselect all words** by pressing the **Escape** key.
 - Clicking on a **selected word or annotation** should **unselect** it.
 - **Annotations cannot be selected** alongside other words or annotations.
   - **Command/Ctrl-clicking** an annotation when a word is selected will **deselect the word** and keep only the annotation.

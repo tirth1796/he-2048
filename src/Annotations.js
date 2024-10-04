@@ -6,7 +6,7 @@ export const Annotations = ({ paragraph }) => {
   // Splits the paragraph into an array of words
   const words = useMemo(() => paragraph.split(' '), [paragraph]);
 
-  // TODO: Implement These!
+  // TODO: Implement All Callbacks
   const onWordClick = useCallback(() => {}, []);
   const onAnnotatePositiveClick = useCallback(() => {}, []);
   const onAnnotateNegativeClick = useCallback(() => {}, []);
@@ -34,15 +34,28 @@ export const Annotations = ({ paragraph }) => {
           label="Annotate Positive"
           onClick={onAnnotatePositiveClick}
           intent="positive"
+          // TODO: Implement this
+          disabled={false}
+          // TODO: Implement this
+          selected={false}
         />
         {/* TODO: button should have correct selection and click handling */}
         <Button
           label="Annotate Negative"
           onClick={onAnnotateNegativeClick}
           intent="negative"
+          // TODO: Implement this
+          disabled={false}
+          // TODO: Implement this
+          selected={false}
         />
         {/* TODO: button should have correct disabled and click handling */}
-        <Button label="Reset Annotation" onClick={onResetAnnotateClick} />
+        <Button
+          label="Reset Annotation"
+          onClick={onResetAnnotateClick}
+          // TODO: Implement this
+          disabled={false}
+        />
       </div>
     </div>
   );

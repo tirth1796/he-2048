@@ -56,15 +56,6 @@ test('should select and unselect multiple words', () => {
     ...negativeWords,
     positiveWords2[0],
   ]);
-
-  userEvent.keyboard('{Escape}');
-
-  expectWordsUnselected(positiveWords2);
-  expectWordsUnselected([
-    ...positiveWords,
-    ...negativeWords,
-    ...positiveWords2,
-  ]);
 });
 
 test('annotates selected words with correct intent and reset works', () => {
@@ -142,7 +133,4 @@ test('annotates selected words with correct intent and reset works', () => {
     ...negativeWords2,
   ]);
   expectWordsSelected(positiveWords2);
-
-  userEvent.keyboard('{Escape}');
-  expectWordsUnselected(positiveWords2);
 });
