@@ -6,10 +6,16 @@ export const Annotations = ({ paragraph }) => {
   // Splits the paragraph into an array of words
   const words = useMemo(() => paragraph.split(' '), [paragraph]);
 
-  // TODO: Implement All Callbacks
+  // TODO: Implement This
   const onWordClick = useCallback(() => {}, []);
+
+  // TODO: Implement This
   const onAnnotatePositiveClick = useCallback(() => {}, []);
+
+  // TODO: Implement This
   const onAnnotateNegativeClick = useCallback(() => {}, []);
+
+  // TODO: Implement This
   const onResetAnnotateClick = useCallback(() => {}, []);
 
   return (
@@ -19,17 +25,22 @@ export const Annotations = ({ paragraph }) => {
         className="flex-1 flex flex-wrap p-4 border-gray-200 rounded-xl border border-solid shadow-md"
       >
         {words.map((word, index) => (
-          // TODO: These should be rendered with correct intent, selection and click handling
-          <Word word={word} key={index} onClick={onWordClick} />
+          <Word
+            word={word}
+            key={index}
+            onClick={onWordClick}
+            // TODO: Implement this
+            selected={false}
+            // TODO: Implement this
+            intent="default"
+          />
         ))}
       </div>
 
-      {/* TODO: Menu should be visible only when words are selected */}
       <div
         data-testid="menu"
         className="flex-1 flex flex-wrap justify-center gap-2"
       >
-        {/* TODO: button should have correct selection and click handling */}
         <Button
           label="Annotate Positive"
           onClick={onAnnotatePositiveClick}
@@ -39,7 +50,6 @@ export const Annotations = ({ paragraph }) => {
           // TODO: Implement this
           selected={false}
         />
-        {/* TODO: button should have correct selection and click handling */}
         <Button
           label="Annotate Negative"
           onClick={onAnnotateNegativeClick}
@@ -49,7 +59,6 @@ export const Annotations = ({ paragraph }) => {
           // TODO: Implement this
           selected={false}
         />
-        {/* TODO: button should have correct disabled and click handling */}
         <Button
           label="Reset Annotation"
           onClick={onResetAnnotateClick}
